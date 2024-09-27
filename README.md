@@ -27,3 +27,10 @@ Note : The bin capacity is reduced by the size of the added object in this opera
 • object_info(object_id): Print the ID of the bin the object has been placed into.
 • bin_info(bin_id): Return a tuple with first element as the remaining capacity of the bin and second element as list of object IDs currently stored in the bin.
 Example :- (44, [1432, 1340, 1500])
+3.1.1 Clarifications
+We assume that there are n bins and m objects in a system.
+1. You are not allowed to use Dicts (Hashing) or Sets internally implemented in Python.
+2. The program should have a space complexity of O(n + m).
+3. The program should also have a time complexity of at most O(log(n)+log(m)) for the first four functions above and O(log(n) + S) for the bin_info function where S is the number of objects in the corresponding bin.
+4. If the object cannot be placed into any bin as per the algorithm, the program should raise the NoBinFoundException.
+5. You must not import from any new Python libraries and implement the functionality from scratch.
