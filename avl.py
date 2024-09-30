@@ -8,21 +8,21 @@ class AVLTree:
     
     def insert(self, key, obj):
         new_node = Node(key, obj)
-        self.root = self._insert(self.root, new_node)
+        self.root = self._insert(self.root, new_node) #private helper function (_insert)
     
     def _insert(self, root, new_node):
         if not root:
             return new_node
-        if self.compare(new_node, root) < 0:
+        if self.compare(new_node, root) < 0: #if new node is lesser than root we insert it to the left of root
             root.left = self._insert(root.left, new_node)
-        else:
+        else: #else we insert to the right
             root.right = self._insert(root.right, new_node)
         root.height = 1 + max(self._get_height(root.left), self._get_height(root.right))
         return self._balance(root)
     
     def delete(self, key):
         temp_node = Node(key)
-        self.root = self._delete(self.root, temp_node)
+        self.root = self._delete(self.root, temp_node) #private helper function (_delete)
 
     def _delete(self, root, temp_node):
         if not root:
@@ -31,11 +31,13 @@ class AVLTree:
             root.left = self._delete(root.left, temp_node)
         elif self.compare(temp_node, root) > 0:
             root.right = self._delete(root.right, temp_node)
+        #we have found the node to delete
         else:
-            if not root.left:
+            if not root.left: #if only right child
                 return root.right
-            if not root.right:
+            if not root.right: #if only left child
                 return root.left
+            #if both children exist we get the successor of the node to be deleted
             temp = self._get_min_value_node(root.right)
             root.key = temp.key
             root.obj = temp.obj
