@@ -24,10 +24,10 @@ The constructor of this class initializes an empty system of cargo bins and obje
 • add_object(object_id, size, color): Add a new object with a specified ID, size and color choosing the appropriate algorithm based on the color of the object. Example :- (12345, 50, Color.RED)
 Note : The bin capacity is reduced by the size of the added object in this operation.
 • delete_object(object_id): Delete the object with the specified ID from its assigned bin.
-• object_info(object_id): Print the ID of the bin the object has been placed into.
+• **object_info**(object_id): Print the ID of the bin the object has been placed into.
 • bin_info(bin_id): Return a tuple with first element as the remaining capacity of the bin and second element as list of object IDs currently stored in the bin.
 Example :- (44, [1432, 1340, 1500])
-3.1.1 Clarifications
+**3.1.1 Clarifications**
 We assume that there are n bins and m objects in a system.
 1. You are not allowed to use Dicts (Hashing) or Sets internally implemented in Python.
 2. The program should have a space complexity of O(n + m).
