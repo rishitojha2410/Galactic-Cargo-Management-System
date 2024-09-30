@@ -1,5 +1,5 @@
 #implementation of AVL tree in python:
-from node import Node #type: ignore
+from node import Node 
 class AVLTree:
     def __init__(self, compare_function):
         self.root = None
